@@ -36,13 +36,10 @@ $ npm install
 
 ```bash
 # development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
+$ docker-compose up -f docker-compose.debug.yml
 
 # production mode
-$ npm run start:prod
+$ docker-compose up
 ```
 
 ## Test
