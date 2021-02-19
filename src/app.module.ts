@@ -1,26 +1,33 @@
+import { DatabaseModule } from './database.module';
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
+import * as Joi from '@hapi/joi';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'postgres',
-      port: 5432,
-      username: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DB,
-      synchronize: !!process.env.SYNCHRONIZE,
-      autoLoadEntities: true,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      validationSchema: Joi.object({
+        SERVER_PORT: Joi.number().required(),
+        POSTGRES_PASSWORD: Joi.string().required(),
+        POSTGRES_USER: Joi.string().required(),
+        POSTGRES_DB: Joi.string().required(),
+        SYNCHRONIZE: Joi.boolean().required(),
+        JWT_TOKEN_SECRET: Joi.string().required(),
+        JWT_TOKEN_EXPIRATION_TIME: Joi.number().required(),
+        JWT_REFRESH_TOKEN_EXPIRATION_TIME: Joi.number().required(),
+        JWT_REFRESH_TOKEN_SECRET: Joi.string().required(),
+      })
     }),
+    DatabaseModule,
     UsersModule,
     AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
