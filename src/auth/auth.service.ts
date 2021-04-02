@@ -1,7 +1,7 @@
 import { UsersService } from './../users/users.service';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import User from 'src/users/entities/user.entity';
+import User from 'users/entities/user.entity';
 import * as argon2 from 'argon2';
 import { ConfigService } from '@nestjs/config';
 
@@ -44,7 +44,8 @@ export class AuthService {
   }
 
   async login(user: User): Promise<Tokens> {
-    const payload = { email: user.email, sub: user.id }
+    const {password, id, ...rest} = user;
+    const payload = { sub: id, ...rest }
     const tokens = this.generateTokens(payload);
     return tokens;
   }
