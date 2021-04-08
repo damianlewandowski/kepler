@@ -1,6 +1,6 @@
-import Movie from "movies/entities/movie.entity";
+import Movie from "api/movies/entities/movie.entity";
+import User from "api/users/entities/user.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import User from "users/entities/user.entity";
 
 @Entity()
 export default class Rating {

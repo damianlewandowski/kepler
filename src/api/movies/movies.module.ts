@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MoviesService } from './movies.service';
 import { MoviesController } from './movies.controller';
-import { RolesGuard } from 'common/guards/roles.guard';
+import { RolesGuard } from 'api/common/guards/roles.guard';
 import { APP_GUARD } from '@nestjs/core';
 
 @Module({

@@ -1,10 +1,10 @@
-import { Id } from './../types';
 import { UsersService } from './users.service';
 import { Test, TestingModule } from '@nestjs/testing';
 import { UsersController } from './users.controller';
 import { CreateUserDto } from './dto/create-user.dto';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import User from './entities/user.entity';
+import { Id } from 'types';
 
 describe('UsersController', () => {
   let controller: UsersController;

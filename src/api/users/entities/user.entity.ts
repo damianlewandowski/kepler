@@ -1,5 +1,5 @@
-import { Role } from "common/enums/role.enum";
-import Rating from "rating/entities/rating.entity";
+import { Role } from "api/common/enums/role.enum";
+import Rating from "api/rating/entities/rating.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()

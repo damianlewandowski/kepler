@@ -1,8 +1,8 @@
-import { mockRepository } from './../utils/mocks/repository.service';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { MoviesService } from './movies.service';
 import Movie from './entities/movie.entity';
+import { mockRepository } from 'utils/mocks/repository.service';
 
 describe('MoviesService', () => {
   let service: MoviesService;

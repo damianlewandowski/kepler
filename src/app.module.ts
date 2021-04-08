@@ -1,12 +1,10 @@
-import { DatabaseModule } from './database/database.module';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
-import { MoviesModule } from './movies/movies.module';
-import { RatingModule } from './rating/rating.module';
+import { AuthModule } from 'api/auth/auth.module';
+import { MoviesModule } from 'api/movies/movies.module';
+import { RatingModule } from 'api/rating/rating.module';
+import { UsersModule } from 'api/users/users.module';
 import { ConfigModule } from 'config/config.module';
+import { DatabaseModule } from 'database/database.module';
 
 @Module({
   imports: [
@@ -17,7 +15,5 @@ import { ConfigModule } from 'config/config.module';
     MoviesModule,
     RatingModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule { }

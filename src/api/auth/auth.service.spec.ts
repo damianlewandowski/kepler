@@ -5,8 +5,8 @@ import { JwtService } from '@nestjs/jwt';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import User from '../users/entities/user.entity';
 import { ConfigService } from '@nestjs/config';
-import mockedConfigService from '../utils/mocks/config.service';
-import mockedJwtService from '../utils/mocks/jwt.service';
+import mockedConfigService from 'utils/mocks/config.service';
+import mockedJwtService from 'utils/mocks/jwt.service';
 
 describe('AuthService', () => {
   let service: AuthService;

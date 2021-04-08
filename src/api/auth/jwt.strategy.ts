@@ -2,7 +2,7 @@ import { ConfigService } from '@nestjs/config';
 import { Injectable } from "@nestjs/common";
 import { PassportStrategy } from "@nestjs/passport";
 import { ExtractJwt, Strategy } from "passport-jwt";
-import { Role } from 'common/enums/role.enum';
+import { Role } from 'api/common/enums/role.enum';
 
 type Payload = {
   sub: number,

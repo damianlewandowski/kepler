@@ -6,8 +6,8 @@ import { UsersService } from '../users/users.service';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { JwtService } from '@nestjs/jwt';
-import mockedConfigService from '../utils/mocks/config.service';
-import mockedJwtService from '../utils/mocks/jwt.service';
+import mockedConfigService from 'utils/mocks/config.service';
+import mockedJwtService from 'utils/mocks/jwt.service';
 
 describe('AuthController', () => {
   let controller: AuthController;

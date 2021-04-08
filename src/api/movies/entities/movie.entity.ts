@@ -1,4 +1,4 @@
-import Rating from "rating/entities/rating.entity";
+import Rating from "api/rating/entities/rating.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()

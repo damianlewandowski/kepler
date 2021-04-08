@@ -1,9 +1,9 @@
 import { UsersService } from './../users/users.service';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import User from 'users/entities/user.entity';
 import * as argon2 from 'argon2';
 import { ConfigService } from '@nestjs/config';
+import User from 'api/users/entities/user.entity';
 
 export type Tokens = {
   jwt_token: string;
