@@ -1,7 +1,7 @@
 import { Factory, Seeder } from 'typeorm-seeding'
 import { Connection } from 'typeorm'
-import RatingDefinition from 'api/rating/entities/rating_definition.entity'
-import { RatingDefinitionEnum } from 'api/rating/enums/rating_definition.enum'
+import RatingDefinition from 'api/rating/entities/rating-definition.entity'
+import { RatingDefinitionEnum } from 'api/rating/enums/rating-definition.enum'
 
 export default class SeedRoles implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<any> {

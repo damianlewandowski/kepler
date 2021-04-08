@@ -7,6 +7,7 @@ import User from '../users/entities/user.entity';
 import { ConfigService } from '@nestjs/config';
 import mockedConfigService from 'utils/mocks/config.service';
 import mockedJwtService from 'utils/mocks/jwt.service';
+import { Role } from 'api/common/enums/role.enum';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -49,7 +50,7 @@ describe('AuthService', () => {
 
   describe('login', () => {
     it('should generate 2 tokens', async () => {
-      const payload = { id: 1, email: 'somemail@gmail.com', password: 'somepassword123' };
+      const payload = { id: 1, email: 'somemail@gmail.com', password: 'somepassword123', roles: [Role.User] } as User;
       const tokens = await service.login(payload);
       
       expect(Object.keys(tokens).length).toBe(2);
