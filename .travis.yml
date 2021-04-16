@@ -1,5 +1,27 @@
 language: node_js
+
 node_js:  
   - 15
-services:
-  - docker
+
+sudo: required
+
+# services:
+#   - docker
+
+before_script:
+  - npm install
+
+script:
+  - npm test
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $TRAVIS_ACCESS_KEY_ID
+  secret_access_key: 
+    secure: $TRAVIS_SECRET_ACCESS_KEY
+  region: us-east-2
+  app: "kepler"
+  env: "Kepler-env"
+  bucket_name: "kepler-s3-bucket-123456"
+  on:
+    branch: master
