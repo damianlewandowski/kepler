@@ -5,23 +5,20 @@ node_js:
 
 sudo: required
 
-# services:
-#   - docker
+services:
+  - docker
 
-before_script:
-  - npm install
+cache:
+    directories:
+        - "node_modules"
 
-script:
-  - npm test
+after_success:
+  - docker build -t kepler .
+
+before_deploy:
+    - docker login -u "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD" docker.io ;
+    - docker tag nestjs-products-api $DOCKER_USERNAME/nestjs-products-api:latest
 
 deploy:
-  provider: elasticbeanstalk
-  access_key_id: $TRAVIS_ACCESS_KEY_ID
-  secret_access_key: 
-    secure: $TRAVIS_SECRET_ACCESS_KEY
-  region: us-east-2
-  app: "kepler"
-  env: "Kepler-env"
-  bucket_name: "kepler-s3-bucket-123456"
-  on:
-    branch: master
+    provider: script
+    script: docker push $DOCKER_USERNAME/nestjs-products-api:latest ;
